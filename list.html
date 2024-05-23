@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List with Study Timer</title>
+    <link rel="stylesheet" href="list.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <!-- 목표 설정 폼 -->
+        <form id="goal-form">
+            <input type="text" id="goal-input" placeholder="Enter your goal" required>
+            <button type="submit">Set Goal</button>
+        </form>
+        <div id="current-goal" style="color: red;"></div>
+        <!-- 할 일 목록 폼 -->
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Enter a task" required>
+            <input type="datetime-local" id="todo-datetime" required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="todo-list"></ul>
+        
+        <!-- 공부 타이머 -->
+        <div class="timer">
+            <h2>Study Timer</h2>
+            <div id="timer-display">00:00:00</div>
+            <button id="start-timer">Start</button>
+            <button id="stop-timer">Stop</button>
+            <button id="reset-timer">Reset</button>
+        </div>
+        <div class="logout">
+          <p><a href="index.html">log out</a></p>
+        </div>
+    </div>
+    <script src="list.js"></script>
+</body>
+</html>
+
+
+

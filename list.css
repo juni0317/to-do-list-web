@@ -1,0 +1,114 @@
+body {
+  background-color: rgb(255, 230, 200);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: ghostwhite;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px blue;
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  color: #fe6600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="datetime-local"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #fafafa;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  font-size: 14px;
+}
+
+li button {
+  background: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background: #c9302c;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.timer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#timer-display {
+  font-size: 2em;
+  margin: 10px 0;
+  color: red;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+/* 로그아웃 버튼 스타일 */
+#logout-button {
+  align-self: center;
+  margin: 20px 0;
+}
+
+.logout{
+  margin-left: 168px;
+}

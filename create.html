@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Create Account</h1>
+        <form id="signup-form">
+            <label for="name">name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="username">username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm-password">confrim password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            
+            <button type="submit">Done</button>
+        </form>
+    </div>
+    <script src="create.js"></script>
+</body>
+</html>
