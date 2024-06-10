@@ -1,8 +1,8 @@
 body {
     display: flex;
-    flex-direction: column; /* 세로 정렬로 변경 */
-    justify-content: flex-start; /* 시작 부분을 기준으로 정렬 */
-    align-items: center; /* 가로 중앙 정렬을 유지 */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,9 +10,9 @@ body {
 }
 
 .todo-title-container {
-    width: 100%; /* 전체 너비 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    margin-top: 50px; /* 상단 여백 추가 */
+    width: 100%;
+    text-align: center; 
+    margin-top: 50px; 
 }
 
 .todo-title {
@@ -21,7 +21,6 @@ body {
     color:#fe6600;
 }
 
-/* 기존 .login-container 스타일은 유지 */
 .login-container {
     background-color: ghostwhite;
     margin-top: 200px;

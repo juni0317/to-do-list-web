@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 230, 200);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .items {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* 아이템들 사이의 간격 조정 */
+        }
+        .item {
+            text-align: center;
+            cursor: pointer;
+        }
+        .item img {
+            width: 200px;
+            height: 200px;
+        }
+        .item p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: blue;
+        }
+        .logout-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items">
+            <div class="item" onclick="location.href='list.html'">
+                <img src="diary.png" alt="다이어리">
+                <p>To-Do List</p>
+            </div>
+            <div class="item" onclick="location.href='maps.html'">
+                <img src="map.png" alt="지도">
+                <p>List Map</p>
+            </div>
+        </div>
+        <button class="logout-button" onclick="location.href='index.html'">log out</button>
+    </div>
+</body>
+</html>

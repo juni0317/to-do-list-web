@@ -5,14 +5,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
     const message = document.getElementById('message');
     
-    // Simple validation
-    if (username === 'hyeokjun' && password === 'juni0317') {
+    if (username === 'admin' && password === '1234') {
         message.style.color = 'green';
         message.textContent = 'Login successful! Redirecting...';
         
-        // Redirect to index.html after 1 seconds
         setTimeout(() => {
-            window.location.href = 'list.html';
+            window.location.href = 'main.html';
         }, 1000);
     } else {
         message.style.color = 'red';

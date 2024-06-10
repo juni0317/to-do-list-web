@@ -21,10 +21,28 @@ document.getElementById('todo-form').addEventListener('submit', function(event) 
   const todoDateTimeValue = todoDatetime.value;
   
   if (todoText && todoDateTimeValue) {
+      const todoDate = new Date(todoDateTimeValue).toLocaleDateString();
+      
+      let dateSection = document.getElementById(`date-${todoDate}`);
+      if (!dateSection) {
+          dateSection = document.createElement('div');
+          dateSection.id = `date-${todoDate}`;
+          
+          const dateHeader = document.createElement('h3');
+          dateHeader.textContent = todoDate;
+          dateSection.appendChild(dateHeader);
+          
+          const todoList = document.createElement('ul');
+          todoList.id = `list-${todoDate}`;
+          dateSection.appendChild(todoList);
+          
+          document.getElementById('todo-list').appendChild(dateSection);
+      }
+      
       const listItem = document.createElement('li');
       
       const todoTextSpan = document.createElement('span');
-      todoTextSpan.textContent = `${todoText} - ${new Date(todoDateTimeValue).toLocaleString()}`;
+      todoTextSpan.textContent = `${todoText} - ${new Date(todoDateTimeValue).toLocaleTimeString()}`;
       
       const completeCheckbox = document.createElement('input');
       completeCheckbox.type = 'checkbox';
@@ -40,13 +58,17 @@ document.getElementById('todo-form').addEventListener('submit', function(event) 
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', function() {
           listItem.remove();
+          
+          if (!dateSection.querySelector('ul').hasChildNodes()) {
+              dateSection.remove();
+          }
       });
       
       listItem.appendChild(completeCheckbox);
       listItem.appendChild(todoTextSpan);
       listItem.appendChild(deleteButton);
       
-      document.getElementById('todo-list').appendChild(listItem);
+      document.getElementById(`list-${todoDate}`).appendChild(listItem);
       
       todoInput.value = '';
       todoDatetime.value = '';
@@ -92,3 +114,4 @@ document.getElementById('reset-timer').addEventListener('click', function() {
   updateTimerDisplay();
   timerRunning = false;
 });
+

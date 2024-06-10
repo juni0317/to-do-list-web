@@ -103,7 +103,7 @@ li button:hover {
   min-height: 100vh;
   justify-content: space-between;
 }
-/* 로그아웃 버튼 스타일 */
+
 #logout-button {
   align-self: center;
   margin: 20px 0;

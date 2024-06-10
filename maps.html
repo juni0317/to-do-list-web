@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도에 일정 추가 및 삭제하기</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #schedule-form {
+            margin: 20px 0;
+        }
+        body{
+            background-color: rgb(255, 230, 200)
+        }
+        h1{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add and delete events on Maps</h1>
+    
+    <form id="schedule-form">
+        <input type="text" id="schedule-title" placeholder="todo-title" required>
+        <input type="datetime-local" id="schedule-datetime" required>
+        <button type="submit">add</button>
+    </form>
+    
+    <div id="map"></div>
+    <br>
+    <button class="logout-button" style="background-color: red; color: white;" onclick="location.href='main.html'">go back</button>
+    <script>
+        let map;
+        let markers = [];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 35.1796, lng: 129.0756 }, 
+                zoom: 12
+            });
+
+            map.addListener('click', function(event) {
+                addMarker(event.latLng);
+            });
+        }
+
+        function addMarker(location) {
+            const scheduleTitle = document.getElementById('schedule-title').value;
+            const scheduleDatetime = document.getElementById('schedule-datetime').value;
+
+            if (scheduleTitle && scheduleDatetime) {
+                const marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: `${scheduleTitle}\n${new Date(scheduleDatetime).toLocaleString()}`
+                });
+
+                const infowindow = new google.maps.InfoWindow({
+                    content: `
+                        <h3>${scheduleTitle}</h3>
+                        <p>${new Date(scheduleDatetime).toLocaleString()}</p>
+                        <button onclick="deleteMarker(${markers.length})">삭제</button>
+                    `
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
+                markers.push(marker);
+            } else {
+                alert('일정 제목과 날짜를 입력하세요.');
+            }
+        }
+
+        function deleteMarker(index) {
+            if (markers[index]) {
+                markers[index].setMap(null);
+                markers.splice(index, 1); 
+            }
+        }
+
+        document.getElementById('schedule-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const scheduleTitle = document.getElementById('schedule-title').value;
+            const scheduleDatetime = document.getElementById('schedule-datetime').value;
+
+            if (scheduleTitle && scheduleDatetime) {
+                map.addListener('click', function(event) {
+                    addMarker(event.latLng);
+                });
+            }
+        });
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2F4E95zxWB-pgyD4ymTSMF89mDaOHnac&callback=initMap">
+    </script>
+</body>
+</html>
